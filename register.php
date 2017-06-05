@@ -23,28 +23,68 @@ $result=mysqli_fetch_array($adr);
             <div class="content">
                 <h3><?=$result['name']?></h3>
                 <?=$result['body']?>
+				
+			<?php /*
+				echo "<pre>";
+				print_r ($_POST);
+				echo "</pre>";
+				*/
+				/* 
+				if($_POST){
+				$password=$_POST['password'];
+				$password_again=$_POST['password_again'];
+				if($password==$password_again){
+				echo "ok";
+				}else{
+				echo "error";
+				}
+				}*/
+				
+				if($_POST){
+				$err=[];
+				$password=$_POST['password'];
+				$password_again=$_POST['password_again'];
+				if($password==$password_again){
+				echo "Пароли совпадают";
+				}else{
+				$err[]="Не совпадают пароли";
+				}
+				foreach ($err as $one){
+				echo "<p style='color:red' class='error'>";
+				echo $one;
+				echo "</p>";
+				}
+				
+				}
+				
+				?>
+				
+				
                 <form class="form-horizontal" method="POST">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <label for="inputEmail3" class="col-sm-2 control-label" name="email" id="email">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            <input type="email" name="email" required class="form-control" id="email" placeholder="Email">
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label for="Login" class="col-sm-2 control-label" name="login" id="login">Login</label>
+                        <div class="col-sm-10">
+                            <input type="login" name="login" required class="form-control" id="login" placeholder="Login">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <label for="inputPassword3" class="col-sm-2 control-label" name="password" id="password">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            <input type="password" required name="password" id="password" class="form-control"  placeholder="Password">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Remember me
-                                </label>
-                            </div>
+					<div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label" name="password" id="password">Confirm password</label>
+                        <div class="col-sm-10">
+                            <input type="password" required name="password_again" id="password_again" class="form-control" placeholder="Password">
                         </div>
-                    </div>
+                    </div> 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Sign in</button>
@@ -52,6 +92,9 @@ $result=mysqli_fetch_array($adr);
                     </div>
                 </form>
 
+				
+				
+				
             </div> <!-- /.content -->
         </div>
     </div>

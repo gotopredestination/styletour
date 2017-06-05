@@ -82,6 +82,7 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 		</div><!-- /.menu-top -->
+<?if($_SERVER['PHP_SELF'] == '/index.php' ):?>
 <?if($url == 'index'):?>
 		<section class="menu-carousel">
 			<div id="carousel" class="carousel fade" data-ride="carousel">
@@ -197,6 +198,7 @@
 				</a>
 			</div>
 		</section>
+<?endif;?>
 <?endif;?>
 	</header>
 
