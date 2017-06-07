@@ -1,4 +1,6 @@
-<?php require_once('config/config.php');?>
+<?php
+session_start();
+require_once('config/config.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>	
@@ -74,8 +76,20 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Login</a></li>
-							<li><a href="#">Signup</a></li>
+							<?
+							if(isset($_SESSION['user_id'])){
+								?>
+								<li><a href="home.php">HOME</a></li>
+								<li><a href="Logout.php">Logout</a></li>
+							<?php
+							}else{
+								?>
+								<li><a href="login.php">Login</a></li>
+								<li><a href="#">Signup</a></li>
+							<?php
+							}
+							?>
+
 							<li><a href="#" class="btn-red"><span class="glyphicon glyphicon-shopping-cart"></span>shopping cart</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
