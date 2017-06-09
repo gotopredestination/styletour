@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 09 2017 г., 17:43
+-- Время создания: Июн 09 2017 г., 18:06
 -- Версия сервера: 5.7.16
 -- Версия PHP: 5.6.29
 
@@ -31,6 +31,16 @@ CREATE TABLE `articles` (
   `nameArticle` varchar(255) NOT NULL,
   `descriptionArticle` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `articles`
+--
+
+INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`) VALUES
+(1, '', ''),
+(2, '', ''),
+(3, '', ''),
+(4, '', '');
 
 -- --------------------------------------------------------
 
@@ -139,7 +149,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблицы `maintexts`
 --

@@ -1,4 +1,9 @@
-<?php require_once('templates/top.php'); ?>
+<?php require_once('templates/top.php'); 
+
+
+$nameArticle=$_POST['nameArticle'];
+$descriptionArticle=$_POST['descriptionArticle'];
+?>
 
 
 <div class="col-md-9 col-md-push-3">
@@ -134,6 +139,11 @@
 					</div> <!-- /.sidebar -->
 				</div>
 
+<?php 
 
+$queryArticle="INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle');";
+$returnQueryArticle = mysqli_query($db_con, $queryArticle);
+
+?>
 
 <?php require_once('templates/bottom.php'); ?>
