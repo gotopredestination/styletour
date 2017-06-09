@@ -1,8 +1,7 @@
 <?php require_once('templates/top.php'); 
 
+if($_SESSION['user_id']){
 
-$nameArticle=$_POST['nameArticle'];
-$descriptionArticle=$_POST['descriptionArticle'];
 ?>
 
 
@@ -11,22 +10,108 @@ $descriptionArticle=$_POST['descriptionArticle'];
 						<div class="content">
 							<h3><?=$result['name']?></h3>
 							<?=$result['body']?>
+<?
 
-							<form method="POST">
+
+
+
+
+if($_POST){
+
+//date('ymdthis'.'jpg');
+
+if($_FILES){
+	$filename ='/uploads/'.$_FILES['imageForArticles']['name'];
+	$move=move_uploaded_file($_FILES['imageForArticles']['tmp_name'],$_SERVER['DOCUMENT_ROOT'].$filename);
+	if(!$move){
+	exit('error file upload');
+	} 
+}else{
+$filename='';
+}
+
+
+
+$nameArticle=$_POST['nameArticle'];
+$descriptionArticle=$_POST['descriptionArticle'];
+$imageForArticles=$_FILES['ImageForArticles'];
+
+$queryArticle="INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');";
+$returnQueryArticle = mysqli_query($db_con, $queryArticle);
+if(!$returnQueryArticle){
+ exit('error');
+}
+?>
+<script>
+ document.location.href="Articles.php"
+</script>
+<?php
+}
+?>
+							<form method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 							<label for="nameArticle">Название</label>
-							<input type="nameArticle" id="nameArticle" class="form-control" placeholder="Название">
+							<input type="text" id="nameArticle" name="nameArticle" required class="form-control" placeholder="Название">
 							</div>
 							<div class="form-group">
 							<label for="descriptionArticle">Описание</label>
-							<textarea type="descriptionArticle" id="descriptionArticle" class="form-control" rows="3" placeholder="Описание"></textarea>
+							<textarea id="descriptionArticle" name="descriptionArticle" required class="form-control" rows="3" placeholder="Описание"></textarea>
+							<div class="form-group">
+    <label for="imageForArticles">Изображение</label>
+    <input type="file" id="imageForArticles" name="imageForArticles">
+    <p class="help-block">Добавьте изображение</p>
+  </div>
 							</div>
 							<input class="btn btn-default btn-danger" type="submit" value="Добавить">
 							</form>
-							
-							
-							
-							
+ 
+
+
+<?php
+$query = "SELECT * FROM articles;";
+$returnQuery=mysqli_query($db_con, $query);
+
+
+if(!$returnQuery){
+ exit('error');
+}
+
+?>
+<table width='100%' class="table">
+<tr>
+  <td class="active"><h3>ФОТО</h3></td>
+  <td class="success"><h3>НАЗВАНИЕ</h3></td>
+  <td class="warning"><h3>ДЕЙСТВИЯ</h3></td>
+  
+</tr>
+<?php
+while($result=mysqli_fetch_array($returnQuery)){
+?>
+<tr>
+ <td class="active"><?if($result['ImageForArticles'] != ''){
+ ?><img src='<?=$result['ImageForArticles'];?>'/>
+ <?
+ }else{
+ 
+ echo "<img src='/uploads/images.jpg'/>";
+ 
+ }
+ ?>
+ </td>
+ <td class="success"><?=$result['nameArticle']?></td>
+ <td class="warning">
+  <a href="#" class="btn btn-block btn-default">Удалить</a>
+  <a href="#" class="btn btn-block btn-default">Редактировать</a>
+ </td>
+</tr>
+<?php
+}
+echo "</table>";
+?>
+
+</table>
+
+
 							
 							
 							
@@ -139,11 +224,9 @@ $descriptionArticle=$_POST['descriptionArticle'];
 					</div> <!-- /.sidebar -->
 				</div>
 
-<?php 
+ 
 
-$queryArticle="INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle');";
-$returnQueryArticle = mysqli_query($db_con, $queryArticle);
+<?php }else {
+echo "Ошибка входа";}
 
-?>
-
-<?php require_once('templates/bottom.php'); ?>
+require_once('templates/bottom.php'); ?>
