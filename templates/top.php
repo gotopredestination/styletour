@@ -54,6 +54,7 @@ require_once('config/config.php');?>
 							<li><a href="/">Main</a></li>
 							<li><a href="index.php?url=shipping">Free Shipping Over $50</a></li>
 							<li><a href="index.php?url=support">Support</a></li>
+							<li><a href="articles.php">Articles</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="flag"><img src="img/flag.jpg" alt=""></span>English <span class="caret"></span></a>
 								<ul class="dropdown-menu">
