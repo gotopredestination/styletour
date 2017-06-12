@@ -1,10 +1,12 @@
 <?php
 require_once('templates/top.php');
+require_once('libs.php');
 
 if ($_POST) {
     $email =$_POST['email'];
     $password =$_POST['password'];
 
+	//libs.php
     $query="SELECT * FROM users WHERE
                                 email='$email' AND
                                 password='$password'";
@@ -13,6 +15,10 @@ if ($_POST) {
     if(!adr){
         exit($query);
     }
+	//query("SELECT * FROM users WHERE
+                               // email='$email' AND
+                               // password='$password'");
+	
     if(mysqli_num_rows($adr)>0){
         $user=mysqli_fetch_array($adr);
          $_SESSION['user_id'] = $user['id'];

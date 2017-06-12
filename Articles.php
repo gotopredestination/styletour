@@ -1,4 +1,6 @@
-<?php require_once('templates/top.php'); 
+<?php 
+require_once('templates/top.php'); 
+require_once('libs.php'); 
 
 if($_SESSION['user_id']){
 
@@ -36,11 +38,15 @@ $nameArticle=$_POST['nameArticle'];
 $descriptionArticle=$_POST['descriptionArticle'];
 $imageForArticles=$_FILES['ImageForArticles'];
 
-$queryArticle="INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');";
-$returnQueryArticle = mysqli_query($db_con, $queryArticle);
-if(!$returnQueryArticle){
- exit('error');
-}
+//пробуем libs.php
+//$queryArticle="INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');";
+//$returnQueryArticle = mysqli_query($db_con, $queryArticle);
+//if(!$returnQueryArticle){
+// exit('error');
+//}
+query("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');");
+
+
 ?>
 <script>
  document.location.href="Articles.php"
