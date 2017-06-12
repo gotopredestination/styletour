@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jun 09, 2017 at 09:50 PM
+-- Generation Time: Jun 12, 2017 at 10:04 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.3
 
@@ -32,15 +32,13 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `descriptionArticle` text NOT NULL,
   `ImageForArticles` tinytext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`, `ImageForArticles`) VALUES
-(7, 'Пушкин', 'Я помню чудное мгновенье,передо мной явилась ты\r\n', ''),
-(8, 'Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди, дымясь, чернела рана,\r\nИ кровь лилась хладеющей струей.', ''),
 (9, 'Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
 (10, 'Михаил Юрьевич Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
 (11, 'Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
@@ -49,7 +47,6 @@ INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`, `ImageForArti
 (14, 'Audi A5 Sportback repeat 2', 'fsdfsdfsdf', ''),
 (15, 'Audi A5 Sportback repeat 3', 'vsdfgdfgdfgdfg', '/uploads/035.png'),
 (16, 'Audi A5 Sportback repeat 4', 'hkgjdfkflgj', '/uploads/035.png'),
-(17, 'tertertert', 'ertertert', '/uploads/8723.jpg'),
 (18, 'retertert', 'ertertertert', '/uploads/035.png');
 
 -- --------------------------------------------------------

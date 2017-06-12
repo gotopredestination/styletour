@@ -1,24 +1,16 @@
 <?php
 require_once('templates/top.php');
 require_once('libs.php');
+require_once('config/config.php');
 
 if ($_POST) {
     $email =$_POST['email'];
     $password =$_POST['password'];
-
-	//libs.php
     $query="SELECT * FROM users WHERE
                                 email='$email' AND
                                 password='$password'";
 
-    $adr=mysqli_query($db_con,$query);
-    if(!adr){
-        exit($query);
-    }
-	//query("SELECT * FROM users WHERE
-                               // email='$email' AND
-                               // password='$password'");
-	
+    $adr = queryA($query);
     if(mysqli_num_rows($adr)>0){
         $user=mysqli_fetch_array($adr);
          $_SESSION['user_id'] = $user['id'];

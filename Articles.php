@@ -33,7 +33,6 @@ $filename='';
 }
 
 
-
 $nameArticle=$_POST['nameArticle'];
 $descriptionArticle=$_POST['descriptionArticle'];
 $imageForArticles=$_FILES['ImageForArticles'];
@@ -44,7 +43,7 @@ $imageForArticles=$_FILES['ImageForArticles'];
 //if(!$returnQueryArticle){
 // exit('error');
 //}
-query("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');");
+queryA("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');");
 
 
 ?>
@@ -61,7 +60,7 @@ query("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$f
 							</div>
 							<div class="form-group">
 							<label for="descriptionArticle">Описание</label>
-							<textarea id="descriptionArticle" name="descriptionArticle" required class="form-control" rows="3" placeholder="Описание"></textarea>
+							<textarea id="descriptionArticle" name="descriptionArticle" required class="form-control ckeditor textarea" rows="3" placeholder="Описание"></textarea>
 							<div class="form-group">
     <label for="imageForArticles">Изображение</label>
     <input type="file" id="imageForArticles" name="imageForArticles">
@@ -74,13 +73,16 @@ query("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$f
 
 
 <?php
-$query = "SELECT * FROM articles;";
+/*$query = "SELECT * FROM articles;";
 $returnQuery=mysqli_query($db_con, $query);
 
 
 if(!$returnQuery){
  exit('error');
 }
+*/
+
+queryA("SELECT * FROM articles;");
 
 ?>
 <table width='100%' class="table">
@@ -91,6 +93,7 @@ if(!$returnQuery){
   
 </tr>
 <?php
+$returnQuery=queryA("SELECT * FROM articles;");
 while($result=mysqli_fetch_array($returnQuery)){
 ?>
 <tr>
@@ -106,8 +109,9 @@ while($result=mysqli_fetch_array($returnQuery)){
  </td>
  <td class="success"><?=$result['nameArticle']?></td>
  <td class="warning">
-  <a href="#" class="btn btn-block btn-default">Удалить</a>
-  <a href="#" class="btn btn-block btn-default">Редактировать</a>
+  
+  <a href="edit.php?id=<?=$result['id'];?>" class="btn btn-block btn-default">Редактировать</a>
+  <a href="#" onclick="delete_position('del.php?id=<?=$result['id'];?>','Вы действительно хотите удалить?')" class="btn btn-block btn-default">Удалить</a>
  </td>
 </tr>
 <?php

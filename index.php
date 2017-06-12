@@ -8,11 +8,7 @@ if($_GET['url']){
 require_once('templates/top.php');
 
 $query= "SELECT * FROM maintexts WHERE url='$url'";
-$adr=mysqli_query($db_con,$query);
-if(!$adr){
-	exit('error query');
-}
-$result=mysqli_fetch_array($adr);
+$result=query($query);
 //echo "<pre>";
 //debug_var($result);
 //echo "</pre>";

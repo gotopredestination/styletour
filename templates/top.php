@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('config/config.php');?>
+require_once('config/config.php');
+require_once('libs.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>	
@@ -27,6 +28,14 @@ require_once('config/config.php');?>
 	<link href="css/custom.css" rel="stylesheet">
 	<link href="css/elastislide.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<?php
+	if($_SESSION['user_id']){
+	?>
+	<script src="js/home.js"></script>
+	<script src="ckeditor/ckeditor.js"></script>
+	<?php
+	}
+	?>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
