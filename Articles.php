@@ -43,7 +43,7 @@ $imageForArticles=$_FILES['ImageForArticles'];
 //if(!$returnQueryArticle){
 // exit('error');
 //}
-queryA("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename');");
+queryA("INSERT INTO articles VALUES(NULL,'$nameArticle','$descriptionArticle','$filename', ".$_SESSION['user_id'].");");
 
 
 ?>
@@ -98,7 +98,7 @@ while($result=mysqli_fetch_array($returnQuery)){
 ?>
 <tr>
  <td class="active"><?if($result['ImageForArticles'] != ''){
- ?><img src='<?=$result['ImageForArticles'];?>'/>
+ ?><img class="imageQuery" data-title="<?=$result['nameArticle'];?>" src='<?=$result['ImageForArticles'];?>'/>
  <?
  }else{
  
@@ -120,6 +120,7 @@ echo "</table>";
 ?>
 
 </table>
+<div class="empty"></div>
 
 
 							

@@ -28,6 +28,8 @@ require_once('libs.php');?>
 	<link href="css/custom.css" rel="stylesheet">
 	<link href="css/elastislide.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/main.js"></script>
 	<?php
 	if($_SESSION['user_id']){
 	?>

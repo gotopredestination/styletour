@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jun 12, 2017 at 10:04 PM
+-- Generation Time: Jun 14, 2017 at 09:58 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.3
 
@@ -31,23 +31,28 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `nameArticle` varchar(255) NOT NULL,
   `descriptionArticle` text NOT NULL,
   `ImageForArticles` tinytext NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`, `ImageForArticles`) VALUES
-(9, 'Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
-(10, 'Михаил Юрьевич Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
-(11, 'Лермонтов', 'И снилась ей долина Дагестана;\r\nЗнакомый труп лежал в долине той;\r\nВ его груди дымясь чернела рана,\r\nИ кровь лилась хладеющей струёй', ''),
-(12, 'Audi A5 Sportback', 'Аудюха', ''),
-(13, 'Audi A5 Sportback repeat', 'аудюха', ''),
-(14, 'Audi A5 Sportback repeat 2', 'fsdfsdfsdf', ''),
-(15, 'Audi A5 Sportback repeat 3', 'vsdfgdfgdfgdfg', '/uploads/035.png'),
-(16, 'Audi A5 Sportback repeat 4', 'hkgjdfkflgj', '/uploads/035.png'),
-(18, 'retertert', 'ertertertert', '/uploads/035.png');
+INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`, `ImageForArticles`, `user_id`) VALUES
+(9, 'Лермонтов', '<p>И снилась ей долина Дагестана; Знакомый труп лежал в долине той; В его груди дымясь чернела рана, И кровь лилась хладеющей струёй</p>\r\n', '/uploads/toyota_camry_701132.jpg', 16),
+(10, 'FERRARI', '<p>И снилась ей долина Дагестана; Знакомый труп лежал в долине той; В его груди дымясь чернела рана, И кровь лилась хладеющей струёй</p>\r\n', '/uploads/6866.jpg', 16),
+(11, 'Lamborghini', '<p>И снилась ей долина Дагестана; Знакомый труп лежал в долине той; В его груди дымясь чернела рана, И кровь лилась хладеющей струёй</p>\r\n', '/uploads/170215105927-lamborghini-venenos-recall-car-1100x619.jpg', 16),
+(12, 'Audi A5 Sportback', '<p>Аудюха</p>\r\n', '/uploads/205340-SP_4_996U-01_1.JPG', 16),
+(13, 'Audi A5 Sportback repeat', '<p>аудюха</p>\r\n', '/uploads/Cayenne_Black.jpg', 16),
+(14, 'Audi A5 Sportback repeat 2', '<p>fsdfsdfsdf</p>\r\n', '/uploads/porsche-08.jpg', 16),
+(15, 'Audi A5 Sportback repeat 3', 'vsdfgdfgdfgdfg', '/uploads/035.png', 16),
+(16, 'Audi A5 Sportback repeat 4', 'hkgjdfkflgj', '/uploads/035.png', 16),
+(18, 'retertert', 'ertertertert', '/uploads/035.png', 16),
+(19, 'lexus es 200', '<p>Шанхай Лексус ЕС200<img alt="" src="http://img4.overboost.today/blog/k/lexus-es-200-shanghai-2015.6100346.jpg" style="height:1912px; width:2880px" /></p>\r\n', '/uploads/lexus-es-200-shanghai-2015.6100346.jpg', 16),
+(20, 'Infiniti QX50', '<p>бесконечность</p>\r\n', '/uploads/25-cars-worth-waiting-for-infiniti-qx50-inline-photo-677415-s-original.jpg', 16),
+(22, 'GELIK', '<p>GELIK ujifgjhyfgjkhgfh fgdfgdf</p>\r\n', '/uploads/Mercedes-Gelandewagen-2017-mini.jpg', 16),
+(23, 'volkswagen tiguan', '<p>tiguanchik sfgdfgdfgdfgdfgdfg dfifijk fhgjkdfhg dkfgkdfgjdkfg</p>\r\n', '/uploads/VW_Tiguan_2.0_TDI.jpg', 16);
 
 -- --------------------------------------------------------
 
