@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jun 14, 2017 at 09:58 PM
+-- Generation Time: Jun 16, 2017 at 09:51 PM
 -- Server version: 5.5.41-log
 -- PHP Version: 5.6.3
 
@@ -53,6 +53,31 @@ INSERT INTO `articles` (`id`, `nameArticle`, `descriptionArticle`, `ImageForArti
 (20, 'Infiniti QX50', '<p>бесконечность</p>\r\n', '/uploads/25-cars-worth-waiting-for-infiniti-qx50-inline-photo-677415-s-original.jpg', 16),
 (22, 'GELIK', '<p>GELIK ujifgjhyfgjkhgfh fgdfgdf</p>\r\n', '/uploads/Mercedes-Gelandewagen-2017-mini.jpg', 16),
 (23, 'volkswagen tiguan', '<p>tiguanchik sfgdfgdfgdfgdfgdfg dfifijk fhgjkdfhg dkfgkdfgjdkfg</p>\r\n', '/uploads/VW_Tiguan_2.0_TDI.jpg', 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE IF NOT EXISTS `gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` tinytext NOT NULL,
+  `picture` tinytext NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `putdate` date NOT NULL,
+  `showhide` enum('show','hide') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `name`, `picture`, `user_id`, `putdate`, `showhide`) VALUES
+(1, 'Cayenne', '/uploads/Cayenne_Black.jpg', 16, '2017-06-16', 'show'),
+(2, 'avto', '/uploads/6866.jpg', 16, '2017-06-16', 'show'),
+(3, 'porsche', '/uploads/porsche-08.jpg', 16, '2017-06-16', 'show');
 
 -- --------------------------------------------------------
 

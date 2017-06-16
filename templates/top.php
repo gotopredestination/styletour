@@ -30,6 +30,9 @@ require_once('libs.php');?>
 	<link href="css/style.css" rel="stylesheet">
 	<script src="/js/jquery-3.2.1.min.js"></script>
 	<script src="/js/main.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
 	<?php
 	if($_SESSION['user_id']){
 	?>
@@ -37,7 +40,16 @@ require_once('libs.php');?>
 	<script src="ckeditor/ckeditor.js"></script>
 	<?php
 	}
+	if(count($scripts)>0){
+	foreach($scripts as $one){
+		?>
+		<script src='<?=$one;?>'></script>
+		<?php
+	}
+}
 	?>
+	
+
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
