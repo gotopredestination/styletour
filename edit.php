@@ -19,7 +19,10 @@ if($_FILES){
 	$move=move_uploaded_file($_FILES['imageForArticles']['tmp_name'],$_SERVER['DOCUMENT_ROOT'].$filename);
 	if(!$move){
 	exit('error file upload');
-	} 
+	}
+	if(file_exists($_SERVER['DOCUMENT_ROOT'].$filename)){
+	@unlink($_SERVER['DOCUMENT_ROOT'].$filename);
+	}	
 }else{
 $filename=$com['imageForArticles'];
 }
@@ -30,7 +33,7 @@ if(empty($err)){
 	$adr=queryA($query);
 	 ?>
                                <script>
-                                    document.location.href = 'articles.php';
+                                    document.location.href = 'edit.php';
                                </script>
 
         <?php
